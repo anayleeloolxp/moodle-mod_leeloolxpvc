@@ -88,7 +88,7 @@ class mod_leeloolxpvc_external extends external_api {
             if ($wesphers->recordedurl != "") {
                 $result['old'] = $wesphers->recordedurl;
                 $result['new'] = $recordingpath . '/' . $videoname;
-                $recordingurlbase = str_ireplace('/recordings/', '', $recordingurlbase);
+                $recordingurlbase = str_ireplace('/config/recordings/', '', $recordingurlbase);
                 $sql = 'UPDATE {leeloolxpvc} SET recordedurl = ? WHERE roomname = ?';
                 $DB->execute($sql, [$recordingurlbase . '/' . 'output.mp4', $meetingname]);
             } else {
