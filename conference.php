@@ -26,7 +26,8 @@
 require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
 require_once(dirname(dirname(dirname(__FILE__))) . '/lib/moodlelib.php');
 require_once(dirname(__FILE__) . '/lib.php');
-require_once($CFG->libdir . '/filelib.php');
+global $CFG;
+require_once($CFG->dirroot . '/lib/filelib.php');
 
 $PAGE->set_url($CFG->wwwroot . '/mod/leeloolxpvc/conference.php');
 $PAGE->set_context(context_system::Instance());
