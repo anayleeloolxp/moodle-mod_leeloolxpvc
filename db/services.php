@@ -34,6 +34,25 @@ $functions = array(
         'description' => 'Update Recording of leeloolxpvc Instance.',
         'type' => 'write',
     ),
+
+    'mod_leeloolxpvc_view_leeloolxpvc' => array(
+        'classname' => 'mod_leeloolxpvc_external',
+        'methodname' => 'view_leeloolxpvc',
+        'description' => 'Simulate the view.php web interface page: trigger events, completion, etc...',
+        'type' => 'write',
+        'capabilities' => 'mod/leeloolxpvc:view',
+        'services' => array(MOODLE_OFFICIAL_MOBILE_SERVICE),
+    ),
+
+    'mod_leeloolxpvc_get_leeloolxpvcs_by_courses' => array(
+        'classname'     => 'mod_leeloolxpvc_external',
+        'methodname'    => 'get_leeloolxpvcs_by_courses',
+        'description'   => 'Returns a list of leeloolxpvcs in a provided list of courses, if no list is provided all leeloolxpvcs that the user
+                            can view will be returned.',
+        'type'          => 'read',
+        'capabilities'  => 'mod/leeloolxpvc:view',
+        'services'      => array(MOODLE_OFFICIAL_MOBILE_SERVICE),
+    ),
 );
 
 // We define the services to install as pre-build services. A pre-build service is not editable by administrator.
