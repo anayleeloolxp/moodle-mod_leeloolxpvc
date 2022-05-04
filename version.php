@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'mod_leeloolxpvc';
-$plugin->version = 2021020102;
+$plugin->version = 2022050500;
 $plugin->release = '1.0.0';
 $plugin->requires = 2014051202;
 $plugin->maturity = MATURITY_STABLE;
