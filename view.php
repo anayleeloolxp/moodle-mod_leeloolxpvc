@@ -111,7 +111,7 @@ $settingleeloolxp = $resposedata->data->wespher_conference;
 $maxusers = $settingleeloolxp->maxusers;
 $maxconf = $settingleeloolxp->maxconf;
 
-$checksql = 'SELECT count(*) as activeconf FROM {leeloolxpvc} WHERE `completed`= ?';
+$checksql = 'SELECT count(*) activeconf FROM {leeloolxpvc} WHERE `completed`= ?';
 $wesphers = $DB->get_record_sql($checksql, [2]);
 $activeconf = $wesphers->activeconf;
 
