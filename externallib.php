@@ -80,7 +80,7 @@ class mod_leeloolxpvc_external extends external_api {
         $videourl = base64_decode($reqvideourl);
         $recordingurlbase = base64_decode($reqrecordingurlbase);
 
-        $checksql = 'SELECT * FROM {leeloolxpvc} WHERE `roomname`= ?';
+        $checksql = 'SELECT * FROM {leeloolxpvc} WHERE roomname= ?';
         $wesphers = $DB->get_record_sql($checksql, [$meetingname]);
 
         $result = array();
@@ -136,10 +136,12 @@ class mod_leeloolxpvc_external extends external_api {
         global $DB, $CFG;
         require_once($CFG->dirroot . "/mod/leeloolxpvc/lib.php");
 
-        $params = self::validate_parameters(self::view_leeloolxpvc_parameters(),
+        $params = self::validate_parameters(
+            self::view_leeloolxpvc_parameters(),
             array(
                 'leeloolxpvcid' => $leeloolxpvcid,
-            ));
+            )
+        );
         $warnings = array();
 
         // Request and permission validation.
@@ -182,10 +184,13 @@ class mod_leeloolxpvc_external extends external_api {
      * @since Moodle 3.3
      */
     public static function get_leeloolxpvcs_by_courses_parameters() {
-        return new external_function_parameters (
+        return new external_function_parameters(
             array(
                 'courseids' => new external_multiple_structure(
-                    new external_value(PARAM_INT, 'Course id'), 'Array of course ids', VALUE_DEFAULT, array()
+                    new external_value(PARAM_INT, 'Course id'),
+                    'Array of course ids',
+                    VALUE_DEFAULT,
+                    array()
                 ),
             )
         );
@@ -237,8 +242,15 @@ class mod_leeloolxpvc_external extends external_api {
                 $leeloolxpvc->introfiles = external_util::get_area_files($context->id, 'mod_leeloolxpvc', 'intro', false, false);
 
                 $options = array('noclean' => true);
-                list($leeloolxpvc->content, $leeloolxpvc->contentformat) = external_format_text($leeloolxpvc->content, $leeloolxpvc->contentformat,
-                                                                $context->id, 'mod_leeloolxpvc', 'content', $leeloolxpvc->revision, $options);
+                list($leeloolxpvc->content, $leeloolxpvc->contentformat) = external_format_text(
+                    $leeloolxpvc->content,
+                    $leeloolxpvc->contentformat,
+                    $context->id,
+                    'mod_leeloolxpvc',
+                    'content',
+                    $leeloolxpvc->revision,
+                    $options
+                );
                 $leeloolxpvc->contentfiles = external_util::get_area_files($context->id, 'mod_leeloolxpvc', 'content');
 
                 $returnedleeloolxpvcs[] = $leeloolxpvc;
