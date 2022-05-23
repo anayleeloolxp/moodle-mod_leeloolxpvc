@@ -41,9 +41,14 @@ function leeloolxpvc_update_calendar($wespher, $cmid) {
     $event->eventtype = 'open';
     $event->type = CALENDAR_EVENT_TYPE_STANDARD;
 
-    if ($event->id = $DB->get_field('event', 'id',
-        array('modulename' => 'leeloolxpvc', 'instance' => $wespher->id,
-            'eventtype' => $event->eventtype))) {
+    if ($event->id = $DB->get_field(
+        'event',
+        'id',
+        array(
+            'modulename' => 'leeloolxpvc', 'instance' => $wespher->id,
+            'eventtype' => $event->eventtype
+        )
+    )) {
         if ((!empty($wespher->timeopen)) && ($wespher->timeopen > 0)) {
             $event->name = get_string('wespherstart', 'leeloolxpvc', $wespher->name);
             $event->timestart = $wespher->timeopen;

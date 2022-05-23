@@ -113,7 +113,7 @@ $roomname = ($leeloolxplicense . '_____' . $conferencenmenospace);
 if (!has_capability('mod/leeloolxpvc:view', $context)) {
     notice(get_string('nopermissiontoview', 'leeloolxpvc'));
 }
-echo "<div class='thirdpartynote'><b>".get_string('note', 'leeloolxpvc')."</div>";
+echo "<div class='thirdpartynote'><b>" . get_string('note', 'leeloolxpvc') . "</div>";
 echo "<div id='vc_notice' style='text-align: center;font-size: 30px;color: indianred;'></div>";
 echo "<script src=\"https://" . $settingleeloolxp->wespher_domain . "/external_api.js\"></script>\n";
 echo "<script>\n";

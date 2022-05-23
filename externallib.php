@@ -80,7 +80,7 @@ class mod_leeloolxpvc_external extends external_api {
         $videourl = base64_decode($reqvideourl);
         $recordingurlbase = base64_decode($reqrecordingurlbase);
 
-        $checksql = 'SELECT * FROM {leeloolxpvc} WHERE roomname= ?';
+        $checksql = "SELECT * FROM {leeloolxpvc} WHERE roomname= ?";
         $wesphers = $DB->get_record_sql($checksql, [$meetingname]);
 
         $result = array();
