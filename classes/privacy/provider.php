@@ -25,8 +25,6 @@
 
 namespace mod_leeloolxpvc\privacy;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Privacy Subsystem for mod_leeloolxpvc implementing null_provider.
  *

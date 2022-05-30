@@ -47,8 +47,7 @@ $functions = array(
     'mod_leeloolxpvc_get_leeloolxpvcs_by_courses' => array(
         'classname'     => 'mod_leeloolxpvc_external',
         'methodname'    => 'get_leeloolxpvcs_by_courses',
-        'description'   => 'Returns a list of leeloolxpvcs in a provided list of courses, if no list is provided all leeloolxpvcs that the user
-                            can view will be returned.',
+        'description'   => 'Returns a list of leeloolxpvcs in a provided list of courses.',
         'type'          => 'read',
         'capabilities'  => 'mod/leeloolxpvc:view',
         'services'      => array(MOODLE_OFFICIAL_MOBILE_SERVICE),

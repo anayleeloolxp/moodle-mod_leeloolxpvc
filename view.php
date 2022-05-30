@@ -43,8 +43,7 @@ if ($id) {
     $course = $DB->get_record('course', array('id' => $wespher->course), '*', MUST_EXIST);
     $cm = get_coursemodule_from_instance('leeloolxpvc', $wespher->id, $course->id, false, MUST_EXIST);
 } else {
-
-    print_error('missingparam');
+    throw new moodle_exception('missingparam');
 }
 
 require_login($course, true, $cm);
@@ -135,12 +134,18 @@ if ($activeconf > $maxconf) {
 
         foreach ($recordedurls as $recordedurl) {
             if ($recordedurl != '') {
-                echo '<video width="100%" controls><source src="' . $recordedurl . '" type="video/mp4">Your browser does not support HTML5 video.</video>';
+                echo '<video width="100%" controls><source src="' .
+                    $recordedurl .
+                    '" type="video/mp4">Your browser does not support HTML5 video.</video>';
             }
         }
     } else if ($wespher->completed == 2) {
         echo $OUTPUT->box(get_string('joininfo', 'leeloolxpvc'));
-        echo $OUTPUT->single_button(new moodle_url('/mod/leeloolxpvc/conference.php', $urlparams), get_string('join', 'leeloolxpvc'), 'get');
+        echo $OUTPUT->single_button(
+            new moodle_url('/mod/leeloolxpvc/conference.php', $urlparams),
+            get_string('join', 'leeloolxpvc'),
+            'get'
+        );
     } else {
 
         echo $OUTPUT->box(get_string('conferenenotstartedbyteacher', 'leeloolxpvc'));

@@ -25,8 +25,6 @@
 
 namespace mod_leeloolxpvc\event;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * The mod_leeloolxpvc course module viewed event class.
  *

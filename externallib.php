@@ -58,11 +58,17 @@ class mod_leeloolxpvc_external extends external_api {
      * @param string $reqrecordingurlbase The recording base url
      * @return string welcome message
      */
-    public static function update_recording($reqmeetingname = '', $reqrecordingpath = '', $reqvideoname = '', $reqvideourl = '', $reqrecordingurlbase = '') {
+    public static function update_recording(
+        $reqmeetingname = '',
+        $reqrecordingpath = '',
+        $reqvideoname = '',
+        $reqvideourl = '',
+        $reqrecordingurlbase = ''
+    ) {
 
         global $DB;
         // Parameter validation
-        // REQUIRED
+        // REQUIRED.
         $params = self::validate_parameters(
             self::update_recording_parameters(),
             array(
@@ -238,7 +244,15 @@ class mod_leeloolxpvc_external extends external_api {
 
                 $options = array('noclean' => true);
                 list($leeloolxpvc->intro, $leeloolxpvc->introformat) =
-                    external_format_text($leeloolxpvc->intro, $leeloolxpvc->introformat, $context->id, 'mod_leeloolxpvc', 'intro', null, $options);
+                    external_format_text(
+                        $leeloolxpvc->intro,
+                        $leeloolxpvc->introformat,
+                        $context->id,
+                        'mod_leeloolxpvc',
+                        'intro',
+                        null,
+                        $options
+                    );
                 $leeloolxpvc->introfiles = external_util::get_area_files($context->id, 'mod_leeloolxpvc', 'intro', false, false);
 
                 $options = array('noclean' => true);
